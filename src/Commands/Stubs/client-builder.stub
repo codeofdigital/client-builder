@@ -1,0 +1,26 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Client\Factory as HttpFactory;
+use Illuminate\Http\Client\PendingRequest;
+use CodeOfDigital\ClientBuilder\HttpClientBuilder;
+
+/**
+ * @method static self to(string $method, string $path)
+ * @method static self build(...$args)
+ *
+ * @see HttpClientBuilder
+ */
+class DummyClass extends HttpClientBuilder
+{
+    public function __construct(HttpFactory $http)
+    {
+        return parent::__construct($http);
+    }
+
+    protected function withRequest(PendingRequest $request): void
+    {
+        // TODO: do something with the initialized request
+    }
+}

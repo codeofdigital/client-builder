@@ -1,0 +1,35 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Client\Factory as HttpFactory;
+use Illuminate\Http\Client\PendingRequest;
+use CodeOfDigital\ClientBuilder\HttpClientBuilder;
+use CodeOfDigital\ClientBuilder\Concerns\Cacheable;
+use CodeOfDigital\ClientBuilder\Contracts\CacheableInterface;
+
+/**
+ * @method static self to(string $method, string $path)
+ * @method static self build(...$args)
+ *
+ * @see HttpClientBuilder
+ */
+class DummyClass extends HttpClientBuilder implements CacheableInterface
+{
+    use Cacheable;
+
+    public function __construct(HttpFactory $http)
+    {
+        return parent::__construct($http);
+    }
+
+    public function getCachePayload(array $request): array
+    {
+        // TODO: set cache payload for serialization to generate cache key
+    }
+
+    protected function withRequest(PendingRequest $request): void
+    {
+        // TODO: do something with the initialized request
+    }
+}
